@@ -4,6 +4,7 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {  useForm, usePage } from '@inertiajs/react';
 dayjs.extend(relativeTime);
 
 export default function Chirp({ chirp }) {
@@ -51,7 +52,7 @@ export default function Chirp({ chirp }) {
                     }
 
                 </div>
-                <p className="mt-4 text-lg text-gray-900">{chirp.message}</p>
+
                 {editing
                     ? <form onSubmit={submit}>
                         <textarea value={data.message} onChange={e => setData('message', e.target.value)} className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
